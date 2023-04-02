@@ -14,14 +14,15 @@ const pixabayAPI = new PixabayAPI();
 async function handleSearchPhotos(e) {
   e.preventDefault();
 
+ removeMarkup();
   const searchQuery = e.target.elements['searchQuery'].value.trim();
   pixabayAPI.query = searchQuery;
-  removeMarkup();
+  
 
-  if (!searchQuery) {
-    searchFormEl.reset();
+  if (searchQuery === '') {
+    loadMoreBtnEl.classList.add('is-hidden');
     Notify.info('Please enter search query');
-    return;
+    return; 
   };
 
   try {
