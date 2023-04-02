@@ -21,7 +21,7 @@ async function handleSearchPhotos(e) {
 
   if (searchQuery === '') {
     loadMoreBtnEl.classList.add('is-hidden');
-    Notify.info('Please enter search query');
+    Notify.warning('Please enter search query');
     return; 
   };
 
