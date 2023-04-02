@@ -54,13 +54,14 @@ async function handleSearchPhotos(e) {
 const handleLoadMoreBtnClick = () => {
   pixabayAPI.page += 1;
   pixabayAPI.fetchPhotos().then(data => {
-    if (pixabayAPI.per_page === data.hits.length) {
+    if (data.totalHits < pixabayAPI.per_page) {
       Notify.info(
         "We're sorry, but you've reached the end of search results."
       );
       loadMoreBtnEl.classList.add('is-hidden');
     }
     createGallery(data.hits);
+    
   });
 }
 
