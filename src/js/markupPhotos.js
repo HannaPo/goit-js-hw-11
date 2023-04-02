@@ -7,10 +7,9 @@ export function markupPhotos(
     comments,
     downloads }
 ) {
-    return `<li class="gallery__item">
+    return `<div class="photo-card">
     <a class="gallery__link" href="${largeImageURL}">
       <img class="gallery__img" src="${webformatURL}" alt="${tags}" loading="lazy" />
-    </a>
     <div class="info">
       <p class="info-item">
         <b>Likes</b>
@@ -29,5 +28,6 @@ export function markupPhotos(
         ${downloads}
       </p>
     </div>
-    </li>`;
+    </div>
+    </a>`;
   }
