@@ -6,12 +6,12 @@ export default class PixabayAPI {
 
   constructor() {
     this.page = 1;
-    this.query = "";
+    this.query = '';
     this.per_page = 40;
   }
 
   async fetchPhotos() {
-   const response = await axios.get(`${this.#BASE_URL}`, {
+    const response = await axios.get(`${this.#BASE_URL}`, {
       params: {
         key: this.#API_KEY,
         q: this.query,
@@ -19,10 +19,13 @@ export default class PixabayAPI {
         orientation: 'horizontal',
         safesearch: true,
         page: this.page,
-        per_page: this.perPage,
+        per_page: this.per_page,
       },
     });
-
     return response.data;
-  }  
+  }
+  
+  resetPage() {
+    this.page = 1;
+  }
 }
